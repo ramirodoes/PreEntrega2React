@@ -13,7 +13,11 @@ const ItemListContainer = () => {
     <div className="product-section">
       {products.map((product) => (
         <div key={product.id} className="product-card">
-          <img src={product.img} alt={product.name} />
+          <img
+            src={product.img}
+            alt={product.name}
+            style={{ width: '200px', height: '200px', objectFit: 'cover' }}
+          />
           <h3>{product.name}</h3>
           <p>Precio: ${product.price}</p>
           <button>Agregar al carrito</button>

@@ -13,16 +13,16 @@ const NavBar = ({ cartItems }) => {
                 <div className="collapse navbar-collapse" id="navbarNav">
                     <ul className="navbar-nav ml-auto">
                         <li className="nav-item">
-                            <button className="nav-link btn btn-link">Camisetas</button>
+                            <button className="nav-link btn btn-link">Inicio</button>
                         </li>
                         <li className="nav-item">
-                            <button className="nav-link btn btn-link">Shorts</button>
+                            <button className="nav-link btn btn-link">Otros Productos</button>
                         </li>
                         <li className="nav-item">
-                            <button className="nav-link btn btn-link">Chombas</button>
+                            <button className="nav-link btn btn-link">Quiénes Somos</button>
                         </li>
                         <li className="nav-item">
-                            <button className="nav-link btn btn-link">Camperas</button>
+                            <button className="nav-link btn btn-link">Contacto</button>
                         </li>
                     </ul>
                 </div>
