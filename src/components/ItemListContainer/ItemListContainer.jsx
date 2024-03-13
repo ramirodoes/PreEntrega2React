@@ -1,27 +1,25 @@
 import React, { useState, useEffect } from 'react';
 import { getProducts } from '../asyncMock';
-const ItemListContainer = () => {
+import Item from '../Item/Item';
+import '../ItemList/ItemList.css';
+
+const ItemListContainer = ({ greeting }) => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    getProducts().then((data) => {
-      setProducts(data);
-    });
+    getProducts()
+      .then(response => {
+        setProducts(response);
+      })
+      .catch(error => {
+        console.error(error);
+      });
   }, []);
 
   return (
     <div className="product-section">
       {products.map((product) => (
-        <div key={product.id} className="product-card">
-          <img
-            src={product.img}
-            alt={product.name}
-            style={{ width: '200px', height: '200px', objectFit: 'cover' }}
-          />
-          <h3>{product.name}</h3>
-          <p>Precio: ${product.price}</p>
-          <button>Agregar al carrito</button>
-        </div>
+        <Item key={product.id} product={product} />
       ))}
     </div>
   );

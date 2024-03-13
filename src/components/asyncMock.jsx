@@ -11,4 +11,4 @@ export const getProducts = () => {
             resolve(products)
             }, 500)
         })
-    }
+    };

@@ -7,11 +7,6 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 function App() {
   const [cartItems, setCartItems] = useState([]);
 
-  const addToCart = (itemName) => {
-    const updatedCartItems = cartItems.concat({ name: itemName, quantity: 1 });
-    setCartItems(updatedCartItems);
-  };
-
   const removeFromCart = (itemName) => {
     const updatedCartItems = cartItems.filter(item => item.name !== itemName);
     setCartItems(updatedCartItems);
@@ -22,10 +17,10 @@ function App() {
       <BrowserRouter>
         <NavBar cartItems={cartItems} />
         <Routes>
-          <Route path='/' element={<ItemListContainer addToCart={addToCart} />} />
-          <Route path='/category/:categoryId' element={<ItemListContainer addToCart={addToCart} />} />
-          <Route path='/item/:itemId' element={<ItemListContainer addToCart={addToCart} />} />
-          <Route path='*' element={<ItemListContainer addToCart={addToCart} />} />
+          <Route path='/' element={<ItemListContainer />} />
+          <Route path='/category/:categoryId' element={<ItemListContainer />} />
+          <Route path='/item/:itemId' element={<ItemListContainer />} />
+          <Route path='*' element={<ItemListContainer />} />
         </Routes>
       </BrowserRouter>
     </div>
