@@ -1,8 +1,8 @@
-import './App.css';
+import React, { useState } from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import NavBar from './components/navbar/navbar';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
-import { useState } from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
 
 function App() {
   const [cartItems, setCartItems] = useState([]);
@@ -19,7 +19,7 @@ function App() {
         <Routes>
           <Route path='/' element={<ItemListContainer />} />
           <Route path='/category/:categoryId' element={<ItemListContainer />} />
-          <Route path='/item/:itemId' element={<ItemListContainer />} />
+          <Route path='/item/:itemId' element={<ItemDetailContainer />} /> {}
           <Route path='*' element={<ItemListContainer />} />
         </Routes>
       </BrowserRouter>

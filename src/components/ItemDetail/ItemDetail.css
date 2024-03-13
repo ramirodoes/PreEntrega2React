@@ -1,0 +1,17 @@
+.item-detail {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+  }
+  
+  .item-detail-image {
+    max-width: 300px;
+    max-height: 300px;
+    object-fit: cover;
+    margin-right: 20px;
+  }
+  
+  .item-detail-info {
+    text-align: left;
+  }  
