@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { fetchProducts } from '../asyncMock';
+import { getProducts } from '../asyncMock';
 const ItemListContainer = () => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    fetchProducts().then((data) => {
+    getProducts().then((data) => {
       setProducts(data);
     });
   }, []);
