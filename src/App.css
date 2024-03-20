@@ -43,7 +43,7 @@
 
 .product-section {
   display: flex;
-  gap: 1rem; /* Espacio entre tarjetas */
+  gap: 1rem;
 }
 
 .product-card {

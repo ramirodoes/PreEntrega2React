@@ -1,16 +1,13 @@
 .item-card {
   border: 1px solid #ddd;
   padding: 10px;
-  margin-right: 10px;
-  display: inline-block;
-  width: calc(25% - 10px);
-  box-sizing: border-box;
-  text-align: center;
+  margin-bottom: 10px;
+  width: 200px;
 }
 
 .item-image {
   width: 100%;
-  max-width: 100%;
+  max-width: 200px;
   height: auto;
   object-fit: cover;
 }

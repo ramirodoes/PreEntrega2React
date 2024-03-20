@@ -1,30 +1,43 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import NavBar from './components/navbar/navbar';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
-import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
+import ProductDetailPage from './components/ProductDetailPage';
 
-function App() {
-  const [cartItems, setCartItems] = useState([]);
+const App = () => {
+  return (
+    <div className="App">
+      <BrowserRouter>
+        <AppContent />
+      </BrowserRouter>
+    </div>
+  );
+};
+
+const AppContent = () => {
+  const [cartItems, setCartItems] = React.useState([]);
+  const [selectedCategory, setSelectedCategory] = React.useState(null);
 
   const removeFromCart = (itemName) => {
     const updatedCartItems = cartItems.filter(item => item.name !== itemName);
     setCartItems(updatedCartItems);
   };
 
+  const handleCategorySelect = (category) => {
+    setSelectedCategory(category);
+  };
+
   return (
-    <div className="App">
-      <BrowserRouter>
-        <NavBar cartItems={cartItems} />
-        <Routes>
-          <Route path='/' element={<ItemListContainer />} />
-          <Route path='/category/:categoryId' element={<ItemListContainer />} />
-          <Route path='/item/:itemId' element={<ItemDetailContainer />} /> {}
-          <Route path='*' element={<ItemListContainer />} />
-        </Routes>
-      </BrowserRouter>
-    </div>
+    <>
+      <NavBar cartItems={cartItems} onCategorySelect={handleCategorySelect} />
+      <Routes>
+        <Route path='/' element={<ItemListContainer selectedCategory={selectedCategory} />} />
+        <Route path='/category/:categoryId' element={<ItemListContainer selectedCategory={selectedCategory} />} />
+        <Route path='/item/:itemId' element={<ProductDetailPage />} />
+        <Route path='*' element={<ItemListContainer selectedCategory={selectedCategory} />} />
+      </Routes>
+    </>
   );
-}
+};
 
 export default App;
