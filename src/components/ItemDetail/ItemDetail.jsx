@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import ItemCount from '../ItemCount/ItemCount';
-import './ItemDetail.css'; // Archivo CSS para los estilos personalizados
+import './ItemDetail.css';
 
 const ItemDetail = ({ name, price, img, stock, category, description }) => {
   const [quantity, setQuantity] = useState(0);
@@ -16,10 +16,6 @@ const ItemDetail = ({ name, price, img, stock, category, description }) => {
     if (quantity > 0) {
       setQuantity(quantity - 1);
     }
-  };
-
-  const handleAddToCart = () => {
-    console.log(`Agregado al carrito: ${name} - Cantidad: ${quantity}`);
   };
 
   return (
@@ -45,7 +41,7 @@ const ItemDetail = ({ name, price, img, stock, category, description }) => {
           </div>
         ) : (
           <div className="item-buttons">
-            <ItemCount initial={quantity} stock={stock} onAdd={setQuantity} />
+            <ItemCount initial={quantity} stock={stock} />
             <Link to='/cart' className='finish-purchase-btn'>Terminar Compra</Link>
           </div>
         )}

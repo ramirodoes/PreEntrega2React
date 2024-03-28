@@ -31,8 +31,13 @@ export const CartProvider = ({ children }) => {
     setCartItems([]);
   };
 
+  const totalQuantity = cartItems.reduce((acc, item) => acc + item.quantity, 0);
+  const total = cartItems.reduce((acc, item) => acc + (item.price * item.quantity), 0);
+
   const contextValue = {
     cartItems,
+    totalQuantity,
+    total,
     addToCart,
     removeFromCart,
     clearCart

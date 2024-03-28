@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import { CartContext } from '../../context/CartContext';
 
-const ItemCount = ({ initial, stock, onAdd }) => {
+const ItemCount = ({ initial, stock }) => {
   const [count, setCount] = useState(initial);
+  const { addToCart } = useContext(CartContext);
 
   const handleIncrement = () => {
     if (count < stock) {
@@ -16,7 +18,7 @@ const ItemCount = ({ initial, stock, onAdd }) => {
   };
 
   const handleAddToCart = () => {
-    onAdd(count);
+    addToCart(product, count); // Corregir aquí para pasar el producto al método addToCart
   };
 
   return (
