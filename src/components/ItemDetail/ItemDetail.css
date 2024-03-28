@@ -14,4 +14,30 @@
   
   .item-detail-info {
     text-align: left;
-  }  
+  }
+
+.small-btn {
+  font-size: 14px;
+  padding: 5px 10px;
+}
+
+.add-to-cart-btn {
+  font-size: 16px;
+  padding: 8px 16px;
+  margin-right: 10px;
+}
+
+.finish-purchase-btn {
+  font-size: 16px;
+  padding: 8px 16px;
+  background-color: #4CAF50;
+  color: white; 
+  border: none; 
+  border-radius: 4px;
+  text-decoration: none;
+}
+
+.item-buttons {
+  display: flex;
+  align-items: center;
+}
