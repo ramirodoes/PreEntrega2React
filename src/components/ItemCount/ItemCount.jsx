@@ -1,24 +1,28 @@
 import React, { useState, useContext } from 'react';
 import { CartContext } from '../../context/CartContext';
 
-const ItemCount = ({ initial, stock }) => {
+const ItemCount = ({ product, initial, stock }) => {
   const [count, setCount] = useState(initial);
-  const { addToCart } = useContext(CartContext);
+  const { addItem } = useContext(CartContext);
 
   const handleIncrement = () => {
     if (count < stock) {
-      setCount(count + 1);
+      setCount(count + 1)
     }
   };
 
   const handleDecrement = () => {
     if (count > 1) {
-      setCount(count - 1);
+      setCount(count - 1)
     }
   };
 
   const handleAddToCart = () => {
-    addToCart(product, count); // Corregir aquí para pasar el producto al método addToCart
+    if (product) {
+      addItem(product, count)
+    } else {
+      console.error('Product is not defined');
+    }
   };
 
   return (

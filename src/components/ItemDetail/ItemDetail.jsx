@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import ItemCount from '../ItemCount/ItemCount';
 import './ItemDetail.css';
+import { CartContext } from '../../context/CartContext';
 
-const ItemDetail = ({ name, price, img, stock, category, description }) => {
+const ItemDetail = ({ id, name, price, img, stock, category, description }) => {
+  const { addToCart } = useContext(CartContext);
   const [quantity, setQuantity] = useState(0);
 
   const handleIncrement = () => {
@@ -16,6 +18,14 @@ const ItemDetail = ({ name, price, img, stock, category, description }) => {
     if (quantity > 0) {
       setQuantity(quantity - 1);
     }
+  };
+
+  const handleAddToCart = () => {
+    addToCart(id, quantity);
+  };
+
+  const item = {
+    id, name, price
   };
 
   return (
@@ -41,7 +51,7 @@ const ItemDetail = ({ name, price, img, stock, category, description }) => {
           </div>
         ) : (
           <div className="item-buttons">
-            <ItemCount initial={quantity} stock={stock} />
+            <ItemCount product={id} initial={quantity} stock={stock} onAdd={handleAddToCart}/>
             <Link to='/cart' className='finish-purchase-btn'>Terminar Compra</Link>
           </div>
         )}

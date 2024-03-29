@@ -11,7 +11,7 @@ const ItemDetailContainer = ({ itemId }) => {
     const fetchProduct = async () => {
       try {
         setLoading(true);
-        const productData = await getProductById(parseInt(itemId)); // Convertir el ID a número
+        const productData = await getProductById(parseInt(itemId));
         setProduct(productData);
         setLoading(false);
       } catch (error) {

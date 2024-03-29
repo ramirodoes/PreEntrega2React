@@ -1,8 +1,8 @@
-import './Cart.css'
-import {useContext} from "react"
-import {CartContext} from '..\..\context\CartContext.jsx'
-import CartItem from '..\CartItem\CartItem.jsx'
-import {Link} from 'react-router-dom'
+import './Cart.css';
+import {useContext} from "react";
+import {CartContext} from '../../context/CartContext.jsx';
+import CartItem from '../Item/Item.jsx';
+import {Link} from 'react-router-dom';
 
 const Cart = () => {
     const {cart, clearCart, totalQuantity, total} = useContext(CartContext)
@@ -25,3 +25,5 @@ const Cart = () => {
         </div>
     )
 }
+
+export default Cart;

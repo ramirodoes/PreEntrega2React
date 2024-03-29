@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { CartContext } from '../../context/CartContext';
 
-const NavBar = ({ cartItems }) => {
-  const totalQuantity = cartItems ? cartItems.reduce((acc, item) => acc + item.quantity, 0) : 0;
+const NavBar = () => {
+  const { cart } = useContext(CartContext);
+  const totalQuantity = cart.reduce((acc, item) => acc + item.quantity, 0);
 
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
