@@ -1,3 +1,5 @@
+import '.\CartWidget.css';
+import cart from './assets/cart.svg';
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { CartContext } from '../../context/CartContext';

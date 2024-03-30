@@ -21,7 +21,7 @@ const ItemDetail = ({ id, name, price, img, stock, category, description }) => {
   };
 
   const handleAddToCart = () => {
-    addToCart(id, quantity);
+    addToCart(item, quantity);
   };
 
   const item = {
@@ -51,7 +51,7 @@ const ItemDetail = ({ id, name, price, img, stock, category, description }) => {
           </div>
         ) : (
           <div className="item-buttons">
-            <ItemCount product={id} initial={quantity} stock={stock} onAdd={handleAddToCart}/>
+            <ItemCount product={item} initial={quantity} stock={stock} onAdd={handleAddToCart}/>
             <Link to='/cart' className='finish-purchase-btn'>Terminar Compra</Link>
           </div>
         )}
