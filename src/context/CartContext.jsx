@@ -13,9 +13,10 @@ export const CartProvider = ({ children }) => {
   const [total, setTotal] = useState(0);
 
   const addItem = (item, quantity) => {
-    console.log(item)
+    let actualCart = cart
     if (!isInCart(item.id)) {
-      setCart(prev => [...prev, { ...item, quantity }]);  
+      actualCart.push({...item, quantity})
+      setCart(actualCart);  
     } else {
       const updatedCart = cart.map(cartItem => {
         if (cartItem.id === item.id) {
@@ -25,7 +26,7 @@ export const CartProvider = ({ children }) => {
       })
       setCart(updatedCart)
     }
-    updateTotal()
+    updateTotal(actualCart)
   };
 
   const removeItem = (itemId) => {
@@ -36,7 +37,7 @@ export const CartProvider = ({ children }) => {
 
   const clearCart = () => {
     setCart([]);
-    updateTotal();
+    setTotal(0)
   };
 
   const isInCart = (itemId) => {
@@ -44,7 +45,7 @@ export const CartProvider = ({ children }) => {
   };
 
   const updateTotal = () => {
-    const newTotal = cart.reduce((acc, item) => acc + (item.price * item.quantity), 0)
+    const newTotal = cart.reduce((acc, item) => acc + (item.price * item.quantity), 0) 
     setTotal(newTotal)
   };
 
